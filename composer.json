@@ -1,0 +1,26 @@
+{
+    "name": "hiddencms/altitude",
+    "description": "Theme associatif et outdoor pour HiddenCMS",
+    "type": "hiddencms-addon-theme",
+    "license": "GPL-3.0-only",
+    "require": {
+        "php": ">=8.1",
+        "hiddencms/core": "^0.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "HB\\Themes\\Altitude\\": "themes/altitude/"
+        },
+        "classmap": [
+            "themes/altitude/altitude.php"
+        ]
+    },
+    "extra": {
+        "hiddencms": {
+            "type": "theme",
+            "name": "altitude",
+            "class": "HB\\Themes\\Altitude\\Altitude",
+            "path": "themes/altitude"
+        }
+    }
+}
