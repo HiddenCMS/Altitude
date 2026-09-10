@@ -222,8 +222,33 @@ img { max-width: 100%; height: auto; }
 .card-body { padding: 1.25rem; }
 .card-footer { padding: .9rem 1.2rem; border-top: 1px solid var(--altitude-border); background: #f7f8f5; }
 .altitude-transparent, .altitude-transparent.card, .altitude-transparent > .card { border: 0; background: transparent; box-shadow: none; }
+.altitude-transparent.card > .card-header,
+.altitude-transparent.card > .card-footer { padding-right: 0; padding-left: 0; background: transparent; }
+.altitude-transparent.card > .card-body { padding-right: 0; padding-left: 0; }
 .altitude-card, .altitude-card > .card { border-top: 4px solid var(--altitude-accent); }
 .altitude-card-accent, .altitude-card-accent > .card { border-color: var(--altitude-accent); background: #fff4e5; }
+.altitude-card-accent.card > .card-header,
+.altitude-card-accent.card > .card-footer { border-color: rgba(217, 127, 0, .22); background: rgba(255, 255, 255, .42); }
+.altitude-card-forest, .altitude-card-forest > .card {
+	border-color: var(--altitude-forest);
+	background: var(--altitude-forest);
+	color: rgba(255, 255, 255, .9);
+	box-shadow: 0 10px 28px rgba(24, 53, 42, .18);
+}
+.altitude-card-forest.card > .card-header,
+.altitude-card-forest.card > .card-footer {
+	border-color: rgba(255, 255, 255, .14);
+	background: var(--altitude-forest-deep);
+	color: #fff;
+}
+.altitude-card-forest.card a,
+.altitude-card-forest.card h1,
+.altitude-card-forest.card h2,
+.altitude-card-forest.card h3,
+.altitude-card-forest.card h4,
+.altitude-card-forest.card h5,
+.altitude-card-forest.card h6 { color: #fff; }
+.altitude-card-forest.card .text-muted { color: rgba(255, 255, 255, .68) !important; }
 .altitude-highlight { padding-top: 1.5rem; padding-bottom: 1.5rem; border-left: 5px solid var(--altitude-accent); background: #fff; }
 .altitude-band { padding-top: 2rem; padding-bottom: 2rem; background: var(--altitude-forest); color: #fff; }
 

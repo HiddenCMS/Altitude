@@ -53,7 +53,7 @@ class Altitude extends Theme
 
 	public function styles_widget()
 	{
-		// Visual widget variants can be added through the live editor later.
+		return $this->view('live_editor/widget');
 	}
 
 	public function install($dispositions = [])
