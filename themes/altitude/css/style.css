@@ -226,6 +226,8 @@ img { max-width: 100%; height: auto; }
 .altitude-transparent.card > .card-footer { padding-right: 0; padding-left: 0; background: transparent; }
 .altitude-transparent.card > .card-body { padding-right: 0; padding-left: 0; }
 .altitude-card, .altitude-card > .card { border-top: 4px solid var(--altitude-accent); }
+.altitude-card-title.card > .card-header:not(:empty),
+.altitude-card-title > .card > .card-header:not(:empty) { border-top: 4px solid var(--altitude-accent); }
 .altitude-card-accent, .altitude-card-accent > .card { border-color: var(--altitude-accent); background: #fff4e5; }
 .altitude-card-accent.card > .card-header,
 .altitude-card-accent.card > .card-footer { border-color: rgba(217, 127, 0, .22); background: rgba(255, 255, 255, .42); }

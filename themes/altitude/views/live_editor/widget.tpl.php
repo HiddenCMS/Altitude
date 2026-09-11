@@ -59,6 +59,7 @@
 	}
 
 	.altitude-widget-style-preview.is-bordered { border-top: 4px solid #f28c00; }
+	.altitude-widget-style-preview.is-title-bordered::before { border-top: 4px solid #f28c00; }
 	.altitude-widget-style-preview.is-accent { border-color: #f28c00; background: #fff4e5; }
 	.altitude-widget-style-preview.is-accent::before { border-color: rgba(217, 127, 0, .24); background: rgba(255, 255, 255, .45); }
 	.altitude-widget-style-preview.is-dark { border-color: #244c3c; background: #244c3c; }
@@ -83,7 +84,11 @@
 	</a>
 	<a href="#" class="thumbnail live-editor-overview altitude-widget-style" data-style="altitude-card">
 		<span class="altitude-widget-style-preview is-bordered"></span>
-		<span class="altitude-widget-style-label"><?php echo $this->lang('Liseré accent') ?></span>
+		<span class="altitude-widget-style-label"><?php echo $this->lang('Liseré toujours') ?></span>
+	</a>
+	<a href="#" class="thumbnail live-editor-overview altitude-widget-style" data-style="altitude-card-title">
+		<span class="altitude-widget-style-preview is-title-bordered"></span>
+		<span class="altitude-widget-style-label"><?php echo $this->lang('Liseré si titre') ?></span>
 	</a>
 	<a href="#" class="thumbnail live-editor-overview altitude-widget-style" data-style="altitude-card-accent">
 		<span class="altitude-widget-style-preview is-accent"></span>
