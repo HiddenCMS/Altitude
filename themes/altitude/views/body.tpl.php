@@ -28,6 +28,7 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 				<div class="altitude-navigation-content" id="altitude-navigation-content"><?php echo $zone ?></div>
 			</div>
 		</nav>
+		<button class="altitude-navigation-backdrop" type="button" aria-label="<?php echo $this->lang('Fermer le menu') ?>"></button>
 		<?php endif ?>
 	</header>
 
@@ -35,7 +36,7 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 	<section class="altitude-hero"><div class="altitude-hero-shade"></div><div class="altitude-container altitude-hero-inner"><?php echo $zone ?></div></section>
 	<?php endif ?>
 
-	<?php if (!empty($this->url->request) && ($breadcrumb = $this->widget('breadcrumb'))): ?>
+	<?php if (!empty($this->url->request) && $this->output->breadcrumb_enabled() && ($breadcrumb = $this->widget('breadcrumb'))): ?>
 	<div class="altitude-breadcrumb"><div class="altitude-container"><?php echo $breadcrumb->output() ?></div></div>
 	<?php endif ?>
 
@@ -54,18 +55,19 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 	<?php
 	$zone = (string)$this->output->region('footer');
 	$privacy = function_exists('privacy_notice') ? privacy_notice() : '';
-	if (function_exists('privacy_preferences_link')) $privacy .= '<p class="privacy-preferences">'.privacy_preferences_link().'</p>';
+	$privacy_button = function_exists('privacy_preferences_link')
+		? '<button type="button" class="altitude-cookie-button" data-privacy-open title="'.$this->lang('Gérer mes cookies').'" aria-label="'.$this->lang('Gérer mes cookies').'">'.icon('fas fa-cookie-bite').'</button>'
+		: '';
 	?>
+	<?php if ($zone || $privacy || $privacy_button): ?>
 	<footer class="altitude-footer">
 		<div class="altitude-container">
 			<?php if ($zone): ?><div class="altitude-footer-widgets"><?php echo $zone ?></div><?php endif ?>
-			<div class="altitude-footer-meta">
-				<span><?php echo $this->lang('Copyright').' '.icon('far fa-copyright').' '.date('Y').' <a href="'.url().'">'.htmlspecialchars((string)$this->config->name, ENT_QUOTES, 'UTF-8').'</a>, '.$this->lang('tous droits réservés') ?></span>
-				<span><?php echo $this->lang('Propulsé par').' <a href="https://github.com/HiddenCMS/Core">HiddenCMS</a>' ?></span>
-			</div>
 			<?php echo $privacy ?>
+			<?php echo $privacy_button ?>
 		</div>
 	</footer>
+	<?php endif ?>
 
 	<button class="altitude-back-to-top" type="button" aria-label="<?php echo $this->lang('Haut de page') ?>"><?php echo icon('fas fa-chevron-up') ?></button>
 </div>

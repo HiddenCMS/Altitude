@@ -15,7 +15,7 @@ class Altitude extends Theme
 			'link'        => 'https://github.com/HiddenCMS/Altitude',
 			'author'      => 'HiddenCMS <contact@hiddenblob.com>',
 			'license'     => 'GPL-3.0-only',
-			'version'     => '0.2.0',
+			'version'     => '0.3.0',
 			'depends'     => ['HiddenCMS' => '0.4.0'],
 			'zones'       => ['Barre haute', 'Identite', 'Navigation', 'Couverture', 'Avant-contenu', 'Contenu', 'Apres-contenu', 'Pied de page'],
 			'regions'     => [
@@ -48,7 +48,7 @@ class Altitude extends Theme
 
 	public function styles_row()
 	{
-		// Visual row variants can be added through the live editor later.
+		return $this->view('live_editor/row');
 	}
 
 	public function styles_widget()

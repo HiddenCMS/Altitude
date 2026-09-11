@@ -96,10 +96,25 @@ img { max-width: 100%; height: auto; }
 	z-index: 40;
 	background: var(--altitude-accent);
 	box-shadow: 0 8px 22px rgba(31, 45, 38, .14);
+	transform: translateY(0);
+	transition: transform .22s ease-out, box-shadow .22s ease-out;
 }
 
-.altitude-navigation-inner { min-height: 66px; }
-.altitude-navigation-content > .row { min-height: 66px; align-items: stretch; }
+.altitude-navigation.is-fixed {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+}
+
+.altitude-navigation.is-fixed.is-hidden { transform: translateY(-105%); }
+.altitude-navigation-spacer { display: none; }
+.altitude-navigation-spacer.is-active { display: block; }
+
+.altitude-navigation-inner { min-height: 62px; }
+.altitude-navigation-content > .row { min-height: 62px; align-items: stretch; }
 .altitude-navigation-content > .row > [class*="col-"] { display: flex; align-items: stretch; }
 .altitude-navigation-content .widget-navigation { display: flex; width: 100%; align-items: stretch; }
 .altitude-navigation .widget-navigation > .nav { display: flex; width: 100%; align-items: stretch; justify-content: center; gap: 0; margin: 0; }
@@ -108,7 +123,7 @@ img { max-width: 100%; height: auto; }
 .altitude-navigation .widget-navigation .nav-link {
 	position: relative;
 	display: flex;
-	min-height: 66px;
+	min-height: 62px;
 	align-items: center;
 	gap: .45rem;
 	padding: .8rem 1.05rem;
@@ -120,55 +135,63 @@ img { max-width: 100%; height: auto; }
 	transition: background-color .18s ease, color .18s ease;
 }
 
-.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link:hover,
-.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link:focus,
 .altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link.active,
 .altitude-navigation .widget-navigation > .nav > .nav-item.active > .nav-link {
-	background: rgba(24, 53, 42, .18);
-	color: #fff;
-}
-
-.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link::after {
-	position: absolute;
-	right: 1rem;
-	bottom: 0;
-	left: 1rem;
-	height: 4px;
 	background: #fff;
-	content: "";
-	opacity: 0;
-	transform: scaleX(.4);
-	transition: opacity .18s ease, transform .18s ease;
+	color: #666;
 }
 
-.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link:hover::after,
-.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link:focus::after,
-.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link.active::after,
-.altitude-navigation .widget-navigation > .nav > .nav-item.active > .nav-link::after { opacity: 1; transform: scaleX(1); }
+.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link:hover,
+.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link:focus { background: rgba(217, 127, 0, .55); color: #fff; }
 .altitude-navigation .widget-navigation .nav-link > i[class="icon"] { display: none; }
-.altitude-navigation .widget-navigation .nav-link > .fa-angle-down { margin-left: .15rem; font-size: .7rem; }
+
+.altitude-submenu-toggle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	display: grid;
+	width: 28px;
+	height: 100%;
+	place-items: center;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #fff;
+	cursor: pointer;
+}
+
+.altitude-navigation .has-submenu > .nav-link { padding-right: 2.15rem; }
+.altitude-navigation .has-submenu.active > .altitude-submenu-toggle,
+.altitude-navigation .has-submenu > .nav-link.active + .altitude-submenu-toggle { color: #666; }
+.altitude-submenu-toggle > i { font-size: .7rem; -webkit-text-stroke: .2px currentColor; transform: rotate(90deg); }
+.altitude-submenu-back { display: none !important; }
 
 .altitude-navigation .widget-navigation .nav-item > .nav.flex-column {
 	position: absolute;
 	top: 100%;
 	left: 0;
 	z-index: 45;
-	display: none;
+	display: block;
 	min-width: 240px;
 	margin: 0;
-	padding: .45rem;
-	border-top: 3px solid var(--altitude-forest);
-	background: #fff;
+	padding: 0;
+	border: 0;
+	background: var(--altitude-accent-dark);
 	box-shadow: 0 14px 34px rgba(31, 45, 38, .18);
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(-8px);
+	visibility: hidden;
+	transition: opacity .3s ease-out, transform .3s ease-out, visibility .3s ease-out;
 }
 
 .altitude-navigation .widget-navigation .nav.flex-column .nav-item { display: block; width: 100%; }
-.altitude-navigation .widget-navigation .nav.flex-column .nav-link { width: 100%; min-height: 42px; padding: .6rem .75rem; color: var(--altitude-text); font-family: "Open Sans", Arial, sans-serif; font-size: .9rem; font-weight: 600; white-space: normal; }
+.altitude-navigation .widget-navigation .nav.flex-column .nav-link { width: 100%; min-height: 48px; padding: .75rem 1rem; color: #fff; font-family: "Open Sans", Arial, sans-serif; font-size: .95rem; font-weight: 600; white-space: normal; }
 .altitude-navigation .widget-navigation .nav.flex-column .nav-link:hover,
 .altitude-navigation .widget-navigation .nav.flex-column .nav-link:focus,
-.altitude-navigation .widget-navigation .nav.flex-column .nav-link.active { background: #fff4e5; color: var(--altitude-accent-dark); }
-.altitude-navigation .widget-navigation .nav.flex-column .nav-link > .fa-angle-down { margin-left: auto; }
-.altitude-navigation .widget-navigation .nav.flex-column .nav.flex-column { top: -.45rem; left: 100%; }
+.altitude-navigation .widget-navigation .nav.flex-column .nav-link.active { background: rgba(255, 255, 255, .16); color: #fff; }
+.altitude-navigation .widget-navigation .nav.flex-column .nav.flex-column { top: 0; left: 100%; }
 
 .altitude-navigation-toggle {
 	display: none;
@@ -182,6 +205,8 @@ img { max-width: 100%; height: auto; }
 	color: #fff;
 	font-weight: 700;
 }
+
+.altitude-navigation-backdrop { display: none; }
 
 .altitude-hero {
 	position: relative;
@@ -253,6 +278,17 @@ img { max-width: 100%; height: auto; }
 .altitude-card-forest.card h5,
 .altitude-card-forest.card h6 { color: #fff; }
 .altitude-card-forest.card .text-muted { color: rgba(255, 255, 255, .68) !important; }
+
+/* Widget layout helpers exposed by the Live Editor. */
+.widget.no-padding,
+.card.no-padding > .card-body { padding: 0 !important; }
+.widget.no-margin,
+.card.no-margin { margin: 0 !important; }
+.widget.parent-height,
+.card.parent-height { height: 100%; }
+.widget.parent-width,
+.card.parent-width { width: 100%; }
+
 .altitude-highlight { padding-top: 1.5rem; padding-bottom: 1.5rem; border-left: 5px solid var(--altitude-accent); background: #fff; }
 .altitude-band { padding-top: 2rem; padding-bottom: 2rem; background: var(--altitude-forest); color: #fff; }
 
@@ -278,12 +314,36 @@ img { max-width: 100%; height: auto; }
 
 .altitude-footer a, .altitude-footer h1, .altitude-footer h2, .altitude-footer h3, .altitude-footer h4, .altitude-footer h5, .altitude-footer h6 { color: #fff; }
 .altitude-footer-widgets { margin-bottom: 2rem; }
-.altitude-footer > .altitude-container, .altitude-footer-meta { border: 0; background: transparent; box-shadow: none; }
-.altitude-footer-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.altitude-footer > .altitude-container { border: 0; background: transparent; box-shadow: none; }
 .altitude-footer .row + .row, .altitude-footer .widget + .widget { margin-top: 1.5rem; }
 .altitude-footer .privacy-notice { margin: 1.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, .14); font-size: .875rem; overflow-wrap: anywhere; }
-.altitude-footer .privacy-preferences { margin: .7rem 0 0; }
-.altitude-footer .privacy-preferences-link { padding: 0; border: 0; background: transparent; color: #fff; text-decoration: underline; }
+
+.altitude-cookie-button {
+	position: fixed;
+	bottom: 1.25rem;
+	left: 1.25rem;
+	z-index: 60;
+	display: grid;
+	width: 44px;
+	height: 44px;
+	place-items: center;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, .18);
+	border-radius: 4px;
+	background: var(--altitude-forest-deep);
+	color: #fff;
+	box-shadow: 0 8px 22px rgba(20, 35, 29, .2);
+	cursor: pointer;
+	font-size: 1rem;
+	transition: background-color .18s ease, transform .18s ease;
+}
+
+.altitude-cookie-button:hover,
+.altitude-cookie-button:focus-visible {
+	background: var(--altitude-accent);
+	color: #fff;
+	transform: translateY(-2px);
+}
 
 .altitude-back-to-top {
 	position: fixed;
@@ -310,8 +370,12 @@ img { max-width: 100%; height: auto; }
 @media (min-width: 861px) {
 	.altitude-navigation .widget-navigation .nav-item:hover > .nav.flex-column,
 	.altitude-navigation .widget-navigation .nav-item:focus-within > .nav.flex-column,
-	.altitude-navigation .widget-navigation .nav-item.active > .nav.flex-column,
-	.altitude-navigation .widget-navigation .nav-item.is-submenu-open > .nav.flex-column { display: block; }
+	.altitude-navigation .widget-navigation .nav-item.is-submenu-open > .nav.flex-column {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+		visibility: visible;
+	}
 }
 
 @media (max-width: 860px) {
@@ -320,34 +384,79 @@ img { max-width: 100%; height: auto; }
 	.altitude-identity { padding: .75rem 0; }
 	.altitude-identity-inner { min-height: 72px; }
 	.altitude-identity .header-logo { max-height: 78px; }
-	.altitude-navigation { padding: .65rem 0; }
-	.altitude-navigation-inner { min-height: 44px; }
-	.altitude-navigation-toggle { display: inline-flex; }
-	.altitude-navigation-content { display: none; padding-top: .65rem; }
-	.altitude-navigation-content.is-open { display: block; }
-	.altitude-navigation-content > .row { min-height: 0; }
-	.altitude-navigation-content > .row > [class*="col-"] { display: block; }
-	.altitude-navigation-content .widget-navigation { display: block; }
-	.altitude-navigation .widget-navigation > .nav { align-items: stretch; flex-direction: column; }
-	.altitude-navigation .widget-navigation .nav-item { display: block; }
-	.altitude-navigation .widget-navigation .nav-link { width: 100%; min-height: 46px; padding: .7rem .75rem; }
-	.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link::after { display: none; }
-	.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link.active { background: rgba(24, 53, 42, .18); }
+	body.altitude-menu-open { overflow: hidden; }
+	.altitude-navigation { min-height: 62px; padding: 0; }
+	.altitude-navigation-inner { min-height: 62px; }
+	.altitude-navigation-toggle { display: inline-flex; min-height: 62px; padding: 0 1rem; border: 0; border-radius: 0; font-size: 1.15rem; }
+	.altitude-navigation-toggle > span { display: none; }
+	.altitude-navigation-content {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 100;
+		display: block;
+		width: min(272px, 82vw);
+		padding: 0;
+		background: var(--altitude-accent);
+		box-shadow: 8px 0 24px rgba(24, 37, 31, .2);
+		overflow: hidden;
+		transform: translateX(-105%);
+		visibility: hidden;
+		transition: transform .28s ease, visibility .28s ease;
+	}
+	.altitude-navigation-content.is-open { transform: translateX(0); visibility: visible; }
+	.altitude-navigation-backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 39;
+		display: block;
+		padding: 0;
+		border: 0;
+		background: rgba(16, 24, 20, .62);
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity .28s ease;
+	}
+	body.altitude-menu-open .altitude-navigation-backdrop { opacity: 1; pointer-events: auto; }
+	body.altitude-menu-open .altitude-navigation-toggle { position: fixed; top: 0; left: min(272px, 82vw); z-index: 110; width: 58px; background: rgba(24, 53, 42, .62); }
+	.altitude-navigation-content > .row,
+	.altitude-navigation-content > .row > [class*="col-"],
+	.altitude-navigation-content .widget-navigation { display: block; width: 100%; min-height: 100%; margin: 0; padding: 0; }
+	.altitude-navigation .widget-navigation > .nav { position: relative; min-height: 100%; align-items: stretch; flex-direction: column; overflow-x: hidden; }
+	.altitude-navigation .widget-navigation .nav-item { position: relative; display: block; width: 100%; }
+	.altitude-navigation .widget-navigation .nav-link { width: 100%; min-height: 54px; padding: .9rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, .08); }
+	.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link.active,
+	.altitude-navigation .widget-navigation > .nav > .nav-item.active > .nav-link { background: transparent; color: #fff; }
+	.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link:hover,
+	.altitude-navigation .widget-navigation > .nav > .nav-item > .nav-link:focus { background: rgba(217, 127, 0, .55); }
+	.altitude-submenu-toggle { width: 48px; height: 54px; background: rgba(217, 127, 0, .68); color: #fff !important; }
+	.altitude-submenu-toggle > i { transform: none; }
 	.altitude-navigation .widget-navigation .nav-item > .nav.flex-column,
 	.altitude-navigation .widget-navigation .nav.flex-column .nav.flex-column {
-		position: static;
-		display: none;
-		width: auto;
-		min-width: 0;
-		margin: 0 0 .45rem .75rem;
-		padding: .2rem 0 .2rem .6rem;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 2;
+		display: block;
+		width: min(272px, 82vw);
+		min-width: min(272px, 82vw);
+		min-height: 100%;
+		margin: 0;
+		padding: 0;
 		border: 0;
-		border-left: 2px solid rgba(255, 255, 255, .38);
-		background: rgba(24, 53, 42, .12);
+		background: var(--altitude-accent);
 		box-shadow: none;
+		opacity: 1;
+		pointer-events: none;
+		transform: translateX(100%);
+		visibility: visible;
+		transition: transform .28s ease;
 	}
-	.altitude-navigation .widget-navigation .nav-item.active > .nav.flex-column,
-	.altitude-navigation .widget-navigation .nav-item.is-submenu-open > .nav.flex-column { display: block; }
+	.altitude-navigation .widget-navigation .nav-item.is-submenu-open > .nav.flex-column { pointer-events: auto; transform: translateX(0); }
+	.altitude-submenu-back { display: block !important; }
+	.altitude-submenu-back > button { display: flex; width: 100%; min-height: 54px; align-items: center; padding: 0 1rem; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .12); background: transparent; color: #fff; cursor: pointer; font-size: 1rem; }
 	.altitude-navigation .widget-navigation .nav.flex-column .nav-link { color: #fff; }
 	.altitude-navigation .widget-navigation .nav.flex-column .nav-link:hover,
 	.altitude-navigation .widget-navigation .nav.flex-column .nav-link:focus,
@@ -370,7 +479,6 @@ img { max-width: 100%; height: auto; }
 	.altitude-content { padding: 2rem 0 3rem; }
 	.card-body { padding: 1rem; }
 	.altitude-footer { padding: 2.25rem 0; }
-	.altitude-footer-meta { align-items: flex-start; flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {

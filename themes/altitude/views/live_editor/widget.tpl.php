@@ -91,6 +91,63 @@
 	.altitude-widget-header-option strong,
 	.altitude-widget-header-option small { display: block; }
 	.altitude-widget-header-option small { margin-top: 3px; color: #708078; }
+
+	.altitude-widget-layout-options {
+		margin-top: 20px;
+		padding-top: 20px;
+		border-top: 1px solid #dfe6e2;
+	}
+
+	.altitude-widget-layout-options > strong {
+		display: block;
+		margin-bottom: 4px;
+		color: #30443b;
+		font-size: 15px;
+	}
+
+	.altitude-widget-layout-options > p {
+		margin: 0 0 14px;
+		color: #708078;
+		font-size: 13px;
+	}
+
+	.altitude-widget-helper-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+	}
+
+	.altitude-widget-helper {
+		display: flex;
+		min-width: 0;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		padding: 13px 14px;
+		border: 1px solid #dfe6e2;
+		border-radius: 4px;
+		background: #f7f9f8;
+	}
+
+	.altitude-widget-helper-copy { min-width: 0; }
+	.altitude-widget-helper-copy strong,
+	.altitude-widget-helper-copy small { display: block; }
+	.altitude-widget-helper-copy strong { color: #30443b; font-size: 13px; }
+	.altitude-widget-helper-copy small { margin-top: 2px; color: #708078; font-size: 12px; }
+	.altitude-widget-helper-copy code {
+		display: inline-block;
+		margin-top: 6px;
+		padding: 2px 6px;
+		border: 1px solid #dbe3df;
+		border-radius: 3px;
+		background: #fff;
+		color: #168b94;
+		font-size: 11px;
+	}
+
+	@media (max-width: 767px) {
+		.altitude-widget-helper-grid { grid-template-columns: 1fr; }
+	}
 </style>
 
 <div class="altitude-widget-styles">
@@ -128,5 +185,56 @@
 	<div class="ui toggle checkbox">
 		<input type="checkbox" data-style-modifier="altitude-without-header" data-style-modifier-inverted="true">
 		<label><?php echo $this->lang('Afficher') ?></label>
+	</div>
+</div>
+
+<div class="altitude-widget-layout-options">
+	<strong><?php echo $this->lang('Mise en page') ?></strong>
+	<p><?php echo $this->lang('Ces ajustements peuvent être combinés avec l’apparence sélectionnée.') ?></p>
+	<div class="altitude-widget-helper-grid">
+		<div class="altitude-widget-helper">
+			<div class="altitude-widget-helper-copy">
+				<strong><?php echo $this->lang('Sans espacement intérieur') ?></strong>
+				<small><?php echo $this->lang('Retire le padding du contenu.') ?></small>
+				<code>no-padding</code>
+			</div>
+			<div class="ui toggle checkbox">
+				<input type="checkbox" data-style-modifier="no-padding">
+				<label></label>
+			</div>
+		</div>
+		<div class="altitude-widget-helper">
+			<div class="altitude-widget-helper-copy">
+				<strong><?php echo $this->lang('Sans marge extérieure') ?></strong>
+				<small><?php echo $this->lang('Colle le widget à son environnement.') ?></small>
+				<code>no-margin</code>
+			</div>
+			<div class="ui toggle checkbox">
+				<input type="checkbox" data-style-modifier="no-margin">
+				<label></label>
+			</div>
+		</div>
+		<div class="altitude-widget-helper">
+			<div class="altitude-widget-helper-copy">
+				<strong><?php echo $this->lang('Hauteur du parent') ?></strong>
+				<small><?php echo $this->lang('Étire le widget sur toute la hauteur disponible.') ?></small>
+				<code>parent-height</code>
+			</div>
+			<div class="ui toggle checkbox">
+				<input type="checkbox" data-style-modifier="parent-height">
+				<label></label>
+			</div>
+		</div>
+		<div class="altitude-widget-helper">
+			<div class="altitude-widget-helper-copy">
+				<strong><?php echo $this->lang('Largeur du parent') ?></strong>
+				<small><?php echo $this->lang('Étire le widget sur toute la largeur disponible.') ?></small>
+				<code>parent-width</code>
+			</div>
+			<div class="ui toggle checkbox">
+				<input type="checkbox" data-style-modifier="parent-width">
+				<label></label>
+			</div>
+		</div>
 	</div>
 </div>
