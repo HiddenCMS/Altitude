@@ -15,7 +15,7 @@ class Altitude extends Theme
 			'link'        => 'https://github.com/HiddenCMS/Altitude',
 			'author'      => 'HiddenCMS <contact@hiddenblob.com>',
 			'license'     => 'GPL-3.0-only',
-			'version'     => '0.1.0',
+			'version'     => '0.2.0',
 			'depends'     => ['HiddenCMS' => '0.4.0'],
 			'zones'       => ['Barre haute', 'Identite', 'Navigation', 'Couverture', 'Avant-contenu', 'Contenu', 'Apres-contenu', 'Pied de page'],
 			'regions'     => [

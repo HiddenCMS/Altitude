@@ -75,6 +75,22 @@
 		letter-spacing: 0;
 		text-align: center;
 	}
+
+	.altitude-widget-header-option {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+		margin-top: 20px;
+		padding: 16px 18px;
+		border: 1px solid #dfe6e2;
+		border-radius: 4px;
+		background: #f7f9f8;
+	}
+
+	.altitude-widget-header-option strong,
+	.altitude-widget-header-option small { display: block; }
+	.altitude-widget-header-option small { margin-top: 3px; color: #708078; }
 </style>
 
 <div class="altitude-widget-styles">
@@ -102,4 +118,15 @@
 		<span class="altitude-widget-style-preview is-transparent"></span>
 		<span class="altitude-widget-style-label"><?php echo $this->lang('Transparent') ?></span>
 	</a>
+</div>
+
+<div class="altitude-widget-header-option">
+	<div>
+		<strong><?php echo $this->lang('En-tête de carte') ?></strong>
+		<small><?php echo $this->lang('Affiche le titre du widget dans un en-tête distinct.') ?></small>
+	</div>
+	<div class="ui toggle checkbox">
+		<input type="checkbox" data-style-modifier="altitude-without-header" data-style-modifier-inverted="true">
+		<label><?php echo $this->lang('Afficher') ?></label>
+	</div>
 </div>

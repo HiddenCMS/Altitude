@@ -219,6 +219,8 @@ img { max-width: 100%; height: auto; }
 
 .card-header { padding: 1rem 1.2rem; border-bottom: 1px solid var(--altitude-border); background: #fff; color: var(--altitude-text); font-family: "Titillium Web", Arial, sans-serif; font-size: 1.15rem; font-weight: 700; }
 .card-header:empty { display: none; }
+.altitude-without-header.card > .card-header,
+.altitude-without-header > .card > .card-header { display: none !important; }
 .card-body { padding: 1.25rem; }
 .card-footer { padding: .9rem 1.2rem; border-top: 1px solid var(--altitude-border); background: #f7f8f5; }
 .altitude-transparent, .altitude-transparent.card, .altitude-transparent > .card { border: 0; background: transparent; box-shadow: none; }
