@@ -59,14 +59,16 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 		? '<button type="button" class="altitude-cookie-button" data-privacy-open title="'.$this->lang('Gérer mes cookies').'" aria-label="'.$this->lang('Gérer mes cookies').'">'.icon('fas fa-cookie-bite').'</button>'
 		: '';
 	?>
-	<?php if ($zone || $privacy || $privacy_button): ?>
+	<?php if ($zone): ?>
 	<footer class="altitude-footer">
 		<div class="altitude-container">
 			<?php if ($zone): ?><div class="altitude-footer-widgets"><?php echo $zone ?></div><?php endif ?>
-			<?php echo $privacy ?>
-			<?php echo $privacy_button ?>
 		</div>
 	</footer>
+	<?php endif ?>
+	<?php if ($privacy || $privacy_button): ?>
+		<?php echo $privacy ?>
+		<?php echo $privacy_button ?>
 	<?php endif ?>
 
 	<button class="altitude-back-to-top" type="button" aria-label="<?php echo $this->lang('Haut de page') ?>"><?php echo icon('fas fa-chevron-up') ?></button>
