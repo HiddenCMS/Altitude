@@ -53,16 +53,15 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 	<?php endif ?>
 
 	<?php
-	$zone = (string)$this->output->region('footer');
 	$privacy = function_exists('privacy_notice') ? privacy_notice() : '';
 	$privacy_button = function_exists('privacy_preferences_link')
 		? '<button type="button" class="altitude-cookie-button" data-privacy-open title="'.$this->lang('Gérer mes cookies').'" aria-label="'.$this->lang('Gérer mes cookies').'">'.icon('fas fa-cookie-bite').'</button>'
 		: '';
 	?>
-	<?php if ($zone): ?>
+	<?php if ($zone = (string)$this->output->region('footer')): ?>
 	<footer class="altitude-footer">
 		<div class="altitude-container">
-			<?php if ($zone): ?><div class="altitude-footer-widgets"><?php echo $zone ?></div><?php endif ?>
+			<div class="altitude-footer-widgets"><?php echo $zone ?></div>
 		</div>
 	</footer>
 	<?php endif ?>
