@@ -100,6 +100,7 @@
 				closeMenu();
 			}
 			else {
+				$content.scrollTop(0);
 				$toggle.attr('aria-expanded', 'true');
 				$content.addClass('is-open');
 				$('body').addClass('altitude-menu-open');
@@ -113,6 +114,12 @@
 			var $button = $(this);
 			var $item = $button.parent('.nav-item');
 			var open = $item.hasClass('is-submenu-open');
+
+			if (isMobile() && !open)
+			{
+				$content.scrollTop(0);
+				$item.children('.nav.flex-column').scrollTop(0);
+			}
 
 			$item.siblings('.is-submenu-open').removeClass('is-submenu-open').children('.altitude-submenu-toggle').attr('aria-expanded', 'false');
 			$item.toggleClass('is-submenu-open', !open);

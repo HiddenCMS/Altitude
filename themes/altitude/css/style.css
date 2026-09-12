@@ -392,6 +392,7 @@ img { max-width: 100%; height: auto; }
 	.altitude-identity-inner { min-height: 72px; }
 	.altitude-identity .header-logo { max-height: 78px; }
 	body.altitude-menu-open { overflow: hidden; }
+	body.altitude-menu-open .altitude-cookie-button { visibility: hidden; }
 	.altitude-navigation { min-height: 62px; padding: 0; }
 	/* A transformed bar would trap fixed mobile panels inside its 62px height. */
 	.altitude-navigation,
@@ -419,6 +420,7 @@ img { max-width: 100%; height: auto; }
 		transition: transform .28s ease, visibility .28s ease;
 	}
 	.altitude-navigation-content.is-open { transform: translateX(0); visibility: visible; }
+	.altitude-navigation-content.has-open-submenu { overflow-y: hidden; }
 	.altitude-navigation-backdrop {
 		position: fixed;
 		inset: 0;
