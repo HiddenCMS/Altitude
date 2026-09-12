@@ -55,7 +55,7 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 	<?php
 	$privacy = function_exists('privacy_notice') ? privacy_notice() : '';
 	$privacy_button = function_exists('privacy_preferences_link')
-		? '<button type="button" class="altitude-cookie-button" data-privacy-open title="'.$this->lang('Gérer mes cookies').'" aria-label="'.$this->lang('Gérer mes cookies').'">'.icon('fas fa-cookie-bite').'</button>'
+		? '<button type="button" class="altitude-cookie-button" data-privacy-open data-privacy-launcher title="'.$this->lang('Gérer mes cookies').'" aria-label="'.$this->lang('Gérer mes cookies').'">'.icon('fas fa-cookie-bite').'</button>'
 		: '';
 	?>
 	<?php if ($zone = (string)$this->output->region('footer')): ?>
