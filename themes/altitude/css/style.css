@@ -1,3 +1,6 @@
+.altitude-slider-zone{width:100%;margin:0;padding:0}
+.altitude-slider-zone .row{margin-left:0;margin-right:0}
+.altitude-slider-zone .row>[class*="col-"]{padding-left:0;padding-right:0}
 :root {
 	--altitude-accent: #ff9900;
 	--altitude-accent-dark: #d97f00;

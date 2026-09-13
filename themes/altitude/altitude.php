@@ -15,14 +15,15 @@ class Altitude extends Theme
 			'link'        => 'https://github.com/HiddenCMS/Altitude',
 			'author'      => 'HiddenCMS <contact@hiddenblob.com>',
 			'license'     => 'GPL-3.0-only',
-			'version'     => '0.3.2',
+			'version'     => '0.3.3',
 			'depends'     => ['HiddenCMS' => '0.4.0'],
-			'zones'       => ['Barre haute', 'Identite', 'Navigation', 'Couverture', 'Avant-contenu', 'Contenu', 'Apres-contenu', 'Pied de page'],
+			'zones'       => ['Barre haute', 'Identite', 'Navigation', 'Couverture', 'Avant-contenu', 'Contenu', 'Apres-contenu', 'Pied de page', 'Slider'],
 			'regions'     => [
 				'top'            => 'Barre haute',
 				'header'         => 'Identite',
 				'navigation'     => 'Navigation',
 				'hero'           => 'Couverture',
+				'slider'         => 'Slider',
 				'before_content' => 'Avant-contenu',
 				'content'        => 'Contenu',
 				'after_content'  => 'Apres-contenu',
@@ -49,6 +50,28 @@ class Altitude extends Theme
 	public function styles_row()
 	{
 		return $this->view('live_editor/row');
+	}
+
+	public function slider_region()
+	{
+		$output = (string)$this->output->region('slider');
+		if ($output || !$this->output->live_editor() || !$this->user->admin) { return $output; }
+		$zone = array_search('Slider', $this->info()->zones, TRUE);
+		$page = '*';
+		if (($module = $this->module('outlines')) && $module->is_enabled())
+		{
+			$id = isset($_GET['outline_id']) ? (int)$_GET['outline_id'] : $this->output->data->get('page', 'outline');
+			$outline = $module->model()->get_outline($id) ?: $module->model()->get_outline();
+			if (!$outline || $outline['theme'] !== 'altitude') { return ''; }
+			$page = 'outline:'.(int)$outline['outline_id'];
+		}
+		$record = $this->db->from('dispositions')->where('theme', 'altitude')->where('page', $page)->where('zone', $zone)->row();
+		if (!$record)
+		{
+			$record = ['theme' => 'altitude', 'page' => $page, 'zone' => $zone, 'disposition' => '[]'];
+			$record['disposition_id'] = $this->db->insert('dispositions', $record);
+		}
+		return $this->zone()->display($record);
 	}
 
 	public function styles_widget()

@@ -32,6 +32,10 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 		<?php endif ?>
 	</header>
 
+	<?php if ($zone = (string)$this->theme('altitude')->slider_region()): ?>
+	<div class="altitude-slider-zone"><?php echo $zone ?></div>
+	<?php endif ?>
+
 	<?php if ($zone = (string)$this->output->region('hero')): ?>
 	<section class="altitude-hero"><div class="altitude-hero-shade"></div><div class="altitude-container altitude-hero-inner"><?php echo $zone ?></div></section>
 	<?php endif ?>
