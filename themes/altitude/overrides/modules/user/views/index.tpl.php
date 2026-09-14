@@ -4,5 +4,5 @@
 	<span><?php echo $unreads > 1 ? $unreads.' messages non lus' : '1 message non lu' ?></span>
 </a>
 <?php else: ?>
-<div class="altitude-user-empty"><?php echo icon('far fa-check-circle') ?><span><?php echo $this->lang('Vous êtes à jour, aucun nouveau message.') ?></span></div>
+<div class="altitude-user-empty"><?php echo icon('far fa-check-circle') ?><span><?php echo $this->lang('You are up to date. No new messages.') ?></span></div>
 <?php endif ?>

@@ -85,11 +85,12 @@
 			}
 
 			$('<button type="button" class="altitude-submenu-toggle"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>')
-				.attr('aria-label', 'Ouvrir le sous-menu '+title)
+				.attr('aria-label', <?php echo json_encode((string)$this->lang('Open submenu')) ?>+' '+title)
 				.attr('aria-expanded', 'false')
 				.insertAfter($link);
 
-			$('<li class="altitude-submenu-back"><button type="button"><i class="fas fa-chevron-left" aria-hidden="true"></i><span class="sr-only">Retour</span></button></li>')
+			$('<li class="altitude-submenu-back"><button type="button"><i class="fas fa-chevron-left" aria-hidden="true"></i><span class="sr-only"></span></button></li>')
+				.find('.sr-only').text(<?php echo json_encode((string)$this->lang('Back')) ?>).end()
 				.prependTo($submenu);
 		});
 

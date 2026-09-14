@@ -9,34 +9,34 @@ class Admin extends Controller
 	public function index()
 	{
 		$form = $this->form2()
-			->rule($this->form_colorpicker('accent_color')->title($this->lang('Couleur principale'))->value($this->config->altitude_accent_color ?: '#ff9900')->required())
-			->rule($this->form_colorpicker('forest_color')->title($this->lang('Couleur sombre'))->value($this->config->altitude_forest_color ?: '#244c3c')->required())
-			->rule($this->form_colorpicker('text_color')->title($this->lang('Couleur du texte'))->value($this->config->altitude_text_color ?: '#26312d')->required())
-			->rule($this->form_colorpicker('background_color')->title($this->lang('Couleur de fond'))->value($this->config->altitude_background_color ?: '#f4f5f1')->required())
+			->rule($this->form_colorpicker('accent_color')->title($this->lang('Primary color'))->value($this->config->altitude_accent_color ?: '#ff9900')->required())
+			->rule($this->form_colorpicker('forest_color')->title($this->lang('Dark color'))->value($this->config->altitude_forest_color ?: '#244c3c')->required())
+			->rule($this->form_colorpicker('text_color')->title($this->lang('Text color'))->value($this->config->altitude_text_color ?: '#26312d')->required())
+			->rule($this->form_colorpicker('background_color')->title($this->lang('Background color'))->value($this->config->altitude_background_color ?: '#f4f5f1')->required())
 			->rule($this->form_select('content_width')
-				->title($this->lang('Largeur du contenu'))
+				->title($this->lang('Content width'))
 				->data([
-					'1080' => $this->lang('Compacte'),
+					'1080' => $this->lang('Compact'),
 					'1200' => $this->lang('Standard'),
 					'1320' => $this->lang('Large')
 				])
 				->value($this->config->altitude_content_width ?: '1200')
 				->required())
 			->rule($this->form_select('hero_height')
-				->title($this->lang('Hauteur de la couverture'))
+				->title($this->lang('Cover height'))
 				->data([
-					'360' => $this->lang('Compacte'),
+					'360' => $this->lang('Compact'),
 					'420' => $this->lang('Standard'),
 					'520' => $this->lang('Immersive')
 				])
 				->value($this->config->altitude_hero_height ?: '420')
 				->required())
 			->rule($this->form_select('hero_position')
-				->title($this->lang('Cadrage de la couverture'))
+				->title($this->lang('Cover framing'))
 				->data([
-					'left'   => $this->lang('Gauche'),
-					'center' => $this->lang('Centre'),
-					'right'  => $this->lang('Droite')
+					'left'   => $this->lang('Left'),
+					'center' => $this->lang('Center'),
+					'right'  => $this->lang('Right')
 				])
 				->value($this->config->altitude_hero_position ?: 'center')
 				->required())
@@ -49,12 +49,12 @@ class Admin extends Controller
 						->config('altitude_hero_height', $data['hero_height'])
 						->config('altitude_hero_position', $data['hero_position']);
 
-				notify($this->lang('Apparence du theme mise a jour'));
+				notify($this->lang('Theme appearance updated'));
 				refresh();
 			})
-			->submit($this->lang('Enregistrer'))
+			->submit($this->lang('Save'))
 			->panel()
-			->title($this->lang('Identite visuelle'), 'fas fa-mountain');
+			->title($this->lang('Visual identity'), 'fas fa-mountain');
 
 		return $this->row($this->col($form)->size('col-12'));
 	}

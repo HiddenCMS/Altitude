@@ -70,14 +70,14 @@
 <div class="altitude-row-styles">
 	<a href="#" class="thumbnail live-editor-overview altitude-row-style" data-style="align-items-start">
 		<span class="altitude-row-style-preview"><span></span><span></span><span></span></span>
-		<span class="altitude-row-style-label"><?php echo $this->lang('Aligner en haut') ?></span>
+		<span class="altitude-row-style-label"><?php echo $this->lang('Align to top') ?></span>
 	</a>
 	<a href="#" class="thumbnail live-editor-overview altitude-row-style" data-style="align-items-center">
 		<span class="altitude-row-style-preview is-center"><span></span><span></span><span></span></span>
-		<span class="altitude-row-style-label"><?php echo $this->lang('Centrer verticalement') ?></span>
+		<span class="altitude-row-style-label"><?php echo $this->lang('Center vertically') ?></span>
 	</a>
 	<a href="#" class="thumbnail live-editor-overview altitude-row-style" data-style="align-items-end">
 		<span class="altitude-row-style-preview is-end"><span></span><span></span><span></span></span>
-		<span class="altitude-row-style-label"><?php echo $this->lang('Aligner en bas') ?></span>
+		<span class="altitude-row-style-label"><?php echo $this->lang('Align to bottom') ?></span>
 	</a>
 </div>

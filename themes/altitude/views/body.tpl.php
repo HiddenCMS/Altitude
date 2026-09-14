@@ -8,7 +8,7 @@ $hero_height = in_array((string)$this->config->altitude_hero_height, ['360', '42
 $hero_position = in_array((string)$this->config->altitude_hero_position, ['left', 'center', 'right'], TRUE) ? (string)$this->config->altitude_hero_position : 'center';
 ?>
 <div class="altitude-site" style="--altitude-accent: <?php echo $color('accent_color', '#ff9900') ?>; --altitude-forest: <?php echo $color('forest_color', '#244c3c') ?>; --altitude-text: <?php echo $color('text_color', '#26312d') ?>; --altitude-background: <?php echo $color('background_color', '#f4f5f1') ?>; --altitude-container: <?php echo $content_width ?>px; --altitude-hero-height: <?php echo $hero_height ?>px; --altitude-hero-position: <?php echo $hero_position ?>;">
-	<a class="altitude-skip-link" href="#altitude-main"><?php echo $this->lang('Aller au contenu') ?></a>
+	<a class="altitude-skip-link" href="#altitude-main"><?php echo $this->lang('Skip to content') ?></a>
 
 	<header class="altitude-header">
 		<?php if ($zone = (string)$this->output->region('top')): ?>
@@ -20,7 +20,7 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 		<?php endif ?>
 
 		<?php if ($zone = (string)$this->output->region('navigation')): ?>
-		<nav class="altitude-navigation" aria-label="<?php echo $this->lang('Navigation principale') ?>">
+		<nav class="altitude-navigation" aria-label="<?php echo $this->lang('Main navigation') ?>">
 			<div class="altitude-container altitude-navigation-inner">
 				<button class="altitude-navigation-toggle" type="button" aria-expanded="false" aria-controls="altitude-navigation-content">
 					<?php echo icon('fas fa-bars') ?><span><?php echo $this->lang('Menu') ?></span>
@@ -28,7 +28,7 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 				<div class="altitude-navigation-content" id="altitude-navigation-content"><?php echo $zone ?></div>
 			</div>
 		</nav>
-		<button class="altitude-navigation-backdrop" type="button" aria-label="<?php echo $this->lang('Fermer le menu') ?>"></button>
+		<button class="altitude-navigation-backdrop" type="button" aria-label="<?php echo $this->lang('Close menu') ?>"></button>
 		<?php endif ?>
 	</header>
 
@@ -59,7 +59,7 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 	<?php
 	$privacy = function_exists('privacy_notice') ? privacy_notice() : '';
 	$privacy_button = function_exists('privacy_preferences_link')
-		? '<button type="button" class="altitude-cookie-button" data-privacy-open data-privacy-launcher title="'.$this->lang('Gérer mes cookies').'" aria-label="'.$this->lang('Gérer mes cookies').'">'.icon('fas fa-cookie-bite').'</button>'
+		? '<button type="button" class="altitude-cookie-button" data-privacy-open data-privacy-launcher title="'.$this->lang('Manage cookies').'" aria-label="'.$this->lang('Manage cookies').'">'.icon('fas fa-cookie-bite').'</button>'
 		: '';
 	?>
 	<?php if ($zone = (string)$this->output->region('footer')): ?>
@@ -74,5 +74,5 @@ $hero_position = in_array((string)$this->config->altitude_hero_position, ['left'
 		<?php echo $privacy_button ?>
 	<?php endif ?>
 
-	<button class="altitude-back-to-top" type="button" aria-label="<?php echo $this->lang('Haut de page') ?>"><?php echo icon('fas fa-chevron-up') ?></button>
+	<button class="altitude-back-to-top" type="button" aria-label="<?php echo $this->lang('Back to top') ?>"><?php echo icon('fas fa-chevron-up') ?></button>
 </div>

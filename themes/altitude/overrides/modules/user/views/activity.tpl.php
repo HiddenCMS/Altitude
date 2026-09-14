@@ -9,5 +9,5 @@
 	<?php endforeach ?>
 </div>
 <?php else: ?>
-<div class="altitude-user-empty"><?php echo icon('far fa-clock') ?><span><?php echo $this->lang('Aucune activité récente.') ?></span></div>
+<div class="altitude-user-empty"><?php echo icon('far fa-clock') ?><span><?php echo $this->lang('No recent activity.') ?></span></div>
 <?php endif ?>

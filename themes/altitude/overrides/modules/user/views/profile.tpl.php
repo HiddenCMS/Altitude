@@ -19,10 +19,10 @@
 			$location = privacy_profile_value($profile, 'location');
 		?>
 		<?php if ($date_of_birth): ?>
-		<span class="altitude-user-detail"><?php echo icon('fas fa-birthday-cake').' '.$this->lang('%d an|%d ans', $age = $date_of_birth->interval('today')->y, $age) ?></span>
+		<span class="altitude-user-detail"><?php echo icon('fas fa-birthday-cake').' '.$this->lang('%d year|%d years', $age = $date_of_birth->interval('today')->y, $age) ?></span>
 		<?php endif ?>
 		<?php if ($sex): ?>
-		<span class="altitude-user-detail"><?php echo icon($sex == 'female' ? 'fas fa-venus' : ($sex == 'male' ? 'fas fa-mars' : 'fas fa-genderless')).' '.$this->lang($sex == 'female' ? 'Femme' : ($sex == 'male' ? 'Homme' : 'Non précisé')) ?></span>
+		<span class="altitude-user-detail"><?php echo icon($sex == 'female' ? 'fas fa-venus' : ($sex == 'male' ? 'fas fa-mars' : 'fas fa-genderless')).' '.$this->lang($sex == 'female' ? 'Female' : ($sex == 'male' ? 'Male' : 'Not specified')) ?></span>
 		<?php endif ?>
 		<?php if ($location || $country): ?>
 		<span class="altitude-user-detail"><?php echo icon('fas fa-map-marker-alt').' '.($this->no_translate($location) ?: (get_countries()[$country] ?? '')) ?></span>
@@ -48,6 +48,6 @@
 	<?php endif ?>
 
 	<?php if ($this->user() && $this->user != $user): ?>
-	<a class="altitude-user-contact" href="<?php echo url('user/messages/compose/'.$user->url()) ?>"><?php echo icon('far fa-envelope').' '.$this->lang('Contacter') ?></a>
+	<a class="altitude-user-contact" href="<?php echo url('user/messages/compose/'.$user->url()) ?>"><?php echo icon('far fa-envelope').' '.$this->lang('Contact') ?></a>
 	<?php endif ?>
 </div>

@@ -391,6 +391,7 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 860px) {
 	.altitude-container { width: min(calc(100% - 2rem), var(--altitude-container)); }
 	.altitude-topbar { display: none; }
+	.altitude-topbar:has(.site-language-selector) { display: block; }
 	.altitude-identity { padding: .75rem 0; }
 	.altitude-identity-inner { min-height: 72px; }
 	.altitude-identity .header-logo { max-height: 78px; }

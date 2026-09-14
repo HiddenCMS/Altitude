@@ -11,13 +11,15 @@ class Altitude extends Theme
 		return [
 			'title'       => 'Altitude',
 			'icon'        => 'fas fa-mountain',
-			'description' => 'Theme associatif et outdoor pour HiddenCMS',
+			'description' => $this->lang('A HiddenCMS theme for associations and outdoor activities'),
 			'link'        => 'https://github.com/HiddenCMS/Altitude',
 			'author'      => 'HiddenCMS <contact@hiddenblob.com>',
 			'license'     => 'GPL-3.0-only',
-			'version'     => '0.3.3',
+			'version'     => '0.4.0',
 			'depends'     => ['HiddenCMS' => '0.4.0'],
+			// Legacy zone identifiers remain stable for saved outlines.
 			'zones'       => ['Barre haute', 'Identite', 'Navigation', 'Couverture', 'Avant-contenu', 'Contenu', 'Apres-contenu', 'Pied de page', 'Slider'],
+			'zone_labels' => ['Top bar', 'Identity', 'Navigation', 'Cover', 'Before content', 'Content', 'After content', 'Footer', 'Slider'],
 			'regions'     => [
 				'top'            => 'Barre haute',
 				'header'         => 'Identite',
@@ -124,7 +126,7 @@ class Altitude extends Theme
 					'type'     => 'index',
 					'settings' => $this->storage->encode([
 						'links' => [[
-							'title' => utf8_htmlentities($this->lang('Accueil')),
+							'title' => utf8_htmlentities($this->lang('Home')),
 							'url'   => ''
 						]]
 					])

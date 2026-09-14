@@ -157,19 +157,19 @@
 	</a>
 	<a href="#" class="thumbnail live-editor-overview altitude-widget-style" data-style="altitude-card">
 		<span class="altitude-widget-style-preview is-bordered"></span>
-		<span class="altitude-widget-style-label"><?php echo $this->lang('Liseré toujours') ?></span>
+		<span class="altitude-widget-style-label"><?php echo $this->lang('Always show accent') ?></span>
 	</a>
 	<a href="#" class="thumbnail live-editor-overview altitude-widget-style" data-style="altitude-card-title">
 		<span class="altitude-widget-style-preview is-title-bordered"></span>
-		<span class="altitude-widget-style-label"><?php echo $this->lang('Liseré si titre') ?></span>
+		<span class="altitude-widget-style-label"><?php echo $this->lang('Show accent with title') ?></span>
 	</a>
 	<a href="#" class="thumbnail live-editor-overview altitude-widget-style" data-style="altitude-card-accent">
 		<span class="altitude-widget-style-preview is-accent"></span>
-		<span class="altitude-widget-style-label"><?php echo $this->lang('Accent doux') ?></span>
+		<span class="altitude-widget-style-label"><?php echo $this->lang('Soft accent') ?></span>
 	</a>
 	<a href="#" class="thumbnail live-editor-overview altitude-widget-style" data-style="altitude-card-forest">
 		<span class="altitude-widget-style-preview is-dark"></span>
-		<span class="altitude-widget-style-label"><?php echo $this->lang('Forêt sombre') ?></span>
+		<span class="altitude-widget-style-label"><?php echo $this->lang('Dark forest') ?></span>
 	</a>
 	<a href="#" class="thumbnail live-editor-overview altitude-widget-style" data-style="altitude-transparent">
 		<span class="altitude-widget-style-preview is-transparent"></span>
@@ -179,23 +179,23 @@
 
 <div class="altitude-widget-header-option">
 	<div>
-		<strong><?php echo $this->lang('En-tête de carte') ?></strong>
-		<small><?php echo $this->lang('Affiche le titre du widget dans un en-tête distinct.') ?></small>
+		<strong><?php echo $this->lang('Card header') ?></strong>
+		<small><?php echo $this->lang('Displays the widget title in a separate header.') ?></small>
 	</div>
 	<div class="ui toggle checkbox">
 		<input type="checkbox" data-style-modifier="altitude-without-header" data-style-modifier-inverted="true">
-		<label><?php echo $this->lang('Afficher') ?></label>
+		<label><?php echo $this->lang('Show') ?></label>
 	</div>
 </div>
 
 <div class="altitude-widget-layout-options">
-	<strong><?php echo $this->lang('Mise en page') ?></strong>
-	<p><?php echo $this->lang('Ces ajustements peuvent être combinés avec l’apparence sélectionnée.') ?></p>
+	<strong><?php echo $this->lang('Layout') ?></strong>
+	<p><?php echo $this->lang('These adjustments can be combined with the selected appearance.') ?></p>
 	<div class="altitude-widget-helper-grid">
 		<div class="altitude-widget-helper">
 			<div class="altitude-widget-helper-copy">
-				<strong><?php echo $this->lang('Sans espacement intérieur') ?></strong>
-				<small><?php echo $this->lang('Retire le padding du contenu.') ?></small>
+				<strong><?php echo $this->lang('No inner spacing') ?></strong>
+				<small><?php echo $this->lang('Remove content padding.') ?></small>
 				<code>no-padding</code>
 			</div>
 			<div class="ui toggle checkbox">
@@ -205,8 +205,8 @@
 		</div>
 		<div class="altitude-widget-helper">
 			<div class="altitude-widget-helper-copy">
-				<strong><?php echo $this->lang('Sans marge extérieure') ?></strong>
-				<small><?php echo $this->lang('Colle le widget à son environnement.') ?></small>
+				<strong><?php echo $this->lang('No outer margin') ?></strong>
+				<small><?php echo $this->lang('Places the widget flush with its surroundings.') ?></small>
 				<code>no-margin</code>
 			</div>
 			<div class="ui toggle checkbox">
@@ -216,8 +216,8 @@
 		</div>
 		<div class="altitude-widget-helper">
 			<div class="altitude-widget-helper-copy">
-				<strong><?php echo $this->lang('Hauteur du parent') ?></strong>
-				<small><?php echo $this->lang('Étire le widget sur toute la hauteur disponible.') ?></small>
+				<strong><?php echo $this->lang('Parent height') ?></strong>
+				<small><?php echo $this->lang('Stretch the widget to the available height.') ?></small>
 				<code>parent-height</code>
 			</div>
 			<div class="ui toggle checkbox">
@@ -227,8 +227,8 @@
 		</div>
 		<div class="altitude-widget-helper">
 			<div class="altitude-widget-helper-copy">
-				<strong><?php echo $this->lang('Largeur du parent') ?></strong>
-				<small><?php echo $this->lang('Étire le widget sur toute la largeur disponible.') ?></small>
+				<strong><?php echo $this->lang('Parent width') ?></strong>
+				<small><?php echo $this->lang('Stretch the widget to the available width.') ?></small>
 				<code>parent-width</code>
 			</div>
 			<div class="ui toggle checkbox">
