@@ -15,8 +15,8 @@ class Altitude extends Theme
 			'link'        => 'https://github.com/HiddenCMS/Altitude',
 			'author'      => 'HiddenCMS <contact@hiddenblob.com>',
 			'license'     => 'GPL-3.0-only',
-			'version'     => '0.4.0',
-			'depends'     => ['HiddenCMS' => '0.4.0'],
+			'version'     => '0.5.0',
+			'depends'     => ['HiddenCMS' => '0.9.0'],
 			// Legacy zone identifiers remain stable for saved outlines.
 			'zones'       => ['Barre haute', 'Identite', 'Navigation', 'Couverture', 'Avant-contenu', 'Contenu', 'Apres-contenu', 'Pied de page', 'Slider'],
 			'zone_labels' => ['Top bar', 'Identity', 'Navigation', 'Cover', 'Before content', 'Content', 'After content', 'Footer', 'Slider'],
@@ -84,12 +84,44 @@ class Altitude extends Theme
 	public function install($dispositions = [])
 	{
 		$this	->config('altitude_accent_color', '#ff9900')
+				->config('altitude_accent_dark_color', '#d97f00')
 				->config('altitude_forest_color', '#244c3c')
+				->config('altitude_forest_deep_color', '#18352a')
 				->config('altitude_text_color', '#26312d')
+				->config('altitude_muted_color', '#68736e')
 				->config('altitude_background_color', '#f4f5f1')
+				->config('altitude_surface_color', '#ffffff')
+				->config('altitude_border_color', '#dce2dc')
+				->config('altitude_topbar_background', '#18352a')
+				->config('altitude_topbar_text', '#ffffff')
+				->config('altitude_identity_background', '#ffffff')
+				->config('altitude_navigation_background', '#ff9900')
+				->config('altitude_navigation_text', '#ffffff')
+				->config('altitude_navigation_active_background', '#ffffff')
+				->config('altitude_navigation_active_text', '#666666')
+				->config('altitude_logo_width', '290')
+				->config('altitude_hero_image', '0')
 				->config('altitude_content_width', '1200')
 				->config('altitude_hero_height', '420')
-				->config('altitude_hero_position', 'center');
+				->config('altitude_hero_position', 'center')
+				->config('altitude_hero_position_x', 'center')
+				->config('altitude_hero_position_y', 'center')
+				->config('altitude_hero_size', 'cover')
+				->config('altitude_hero_repeat', 'no-repeat')
+				->config('altitude_hero_attachment', 'scroll')
+				->config('altitude_hero_align', 'flex-end')
+				->config('altitude_hero_overlay_color', '#101f1a')
+				->config('altitude_hero_overlay_opacity', '48')
+				->config('altitude_content_spacing', '56')
+				->config('altitude_radius', '4')
+				->config('altitude_shadow', 'soft')
+				->config('altitude_body_font', 'open-sans')
+				->config('altitude_heading_font', 'titillium')
+				->config('altitude_font_size', '16')
+				->config('altitude_heading_weight', '700')
+				->config('altitude_footer_background', '#18352a')
+				->config('altitude_footer_text', '#ffffff')
+				->config('altitude_footer_accent', '#ff9900');
 
 		$dispositions = $this->array();
 
@@ -175,7 +207,15 @@ class Altitude extends Theme
 
 	public function uninstall($remove = TRUE)
 	{
-		foreach (['accent_color', 'forest_color', 'text_color', 'background_color', 'content_width', 'hero_height', 'hero_position'] as $key)
+		foreach ([
+			'accent_color', 'accent_dark_color', 'forest_color', 'forest_deep_color', 'text_color', 'muted_color',
+			'background_color', 'surface_color', 'border_color', 'topbar_background', 'topbar_text', 'identity_background',
+			'navigation_background', 'navigation_text', 'navigation_active_background', 'navigation_active_text', 'logo_width',
+			'hero_image', 'hero_height', 'hero_position', 'hero_position_x', 'hero_position_y', 'hero_size', 'hero_repeat',
+			'hero_attachment', 'hero_align', 'hero_overlay_color', 'hero_overlay_opacity', 'content_width', 'content_spacing',
+			'radius', 'shadow', 'body_font', 'heading_font', 'font_size', 'heading_weight', 'footer_background',
+			'footer_text', 'footer_accent'
+		] as $key)
 		{
 			$this->config->unset('altitude_'.$key);
 		}
